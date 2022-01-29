@@ -370,10 +370,10 @@ public class GUI extends Application {
 
     private void updateLabelFromCountdownSeconds()
     {
+        days = countdownSeconds / 86400;
+        hours = (countdownSeconds - days*86400) / 3600;
+        minutes = (countdownSeconds - days*86400 - hours*3600) / 60;
         seconds = countdownSeconds%60;
-        minutes = (countdownSeconds - seconds) / 60;
-        hours = (countdownSeconds - minutes*60 - seconds) / 3600;
-        days = (countdownSeconds - hours*3600 - minutes*60 - seconds) / 86400;
 
         updateLabelCountdown();
     }
