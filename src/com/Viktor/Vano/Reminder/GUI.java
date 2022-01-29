@@ -354,6 +354,8 @@ public class GUI extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+        timelineReminderPeriod.stop();
+        timelineOneSecondUpdate.stop();
     }
 
     private void updateLabelCountdown()
