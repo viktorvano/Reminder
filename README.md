@@ -1,5 +1,7 @@
 # Reminder
- JavaFX app with countdown to remind sometning with TTS.
+ JavaFX app with countdown to remind sometning with TTS.  
+ After countdown runs out, it reminds every 30 seconds by speaking via Text To Speech app.  
+ Needs TTS to speak for reminding: https://github.com/viktorvano/TextToSpeech/releases
   
   
 ### Screenshots  
