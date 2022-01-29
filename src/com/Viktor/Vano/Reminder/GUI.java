@@ -321,7 +321,8 @@ public class GUI extends Application {
             textFieldMinutes.setDisable(false);
             textFieldSeconds.setDisable(false);
             textFieldReminderMessage.setDisable(false);
-            countdownSeconds = 9999;
+            updateIntegersFromInput();
+            updateLabelCountdown();
             countdown = false;
             remind = false;
         });
@@ -376,5 +377,56 @@ public class GUI extends Application {
         seconds = countdownSeconds%60;
 
         updateLabelCountdown();
+    }
+
+    private void updateIntegersFromInput()
+    {
+        if(textFieldDays.getText().length() > 0)
+            try{
+                int value = Integer.parseInt(textFieldDays.getText());
+                if(value >= 0)
+                {
+                    days = value;
+                }
+            }catch (Exception e)
+            {
+                textFieldDays.setText("");
+            }
+
+        if(textFieldHours.getText().length() > 0)
+            try{
+                int value = Integer.parseInt(textFieldHours.getText());
+                if(value >= 0)
+                {
+                    hours = value;
+                }
+            }catch (Exception e)
+            {
+                textFieldHours.setText("");
+            }
+
+        if(textFieldMinutes.getText().length() > 0)
+            try{
+                int value = Integer.parseInt(textFieldMinutes.getText());
+                if(value >= 0)
+                {
+                    minutes = value;
+                }
+            }catch (Exception e)
+            {
+                textFieldMinutes.setText("");
+            }
+
+        if(textFieldSeconds.getText().length() > 0)
+            try{
+                int value = Integer.parseInt(textFieldSeconds.getText());
+                if(value >= 0)
+                {
+                    seconds = value;
+                }
+            }catch (Exception e)
+            {
+                textFieldSeconds.setText("");
+            }
     }
 }
