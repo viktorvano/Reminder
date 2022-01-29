@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Reminder:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Reminder_jar</output-path>
+    <root id="archive" name="Reminder.jar">
+      <element id="module-output" name="Reminder" />
+    </root>
+  </artifact>
+</component>
