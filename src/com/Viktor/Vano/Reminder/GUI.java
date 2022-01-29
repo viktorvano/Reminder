@@ -277,7 +277,7 @@ public class GUI extends Application {
         {
             try
             {
-                Image icon = new Image("tts.jpg");
+                Image icon = new Image("reminder.png");
                 stage.getIcons().add(icon);
                 System.out.println("Icon loaded on the second attempt...");
             }catch(Exception e1)
