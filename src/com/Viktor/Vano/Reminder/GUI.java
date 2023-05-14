@@ -19,7 +19,7 @@ import java.util.Objects;
 import static com.Viktor.Vano.Reminder.FileManager.*;
 
 public class GUI extends Application {
-    private final String version = "20220129";
+    private final String version = "20230514";
     private String stringIP = "";
     private int port = 8080;
     private final int width = 550;
@@ -180,7 +180,7 @@ public class GUI extends Application {
         });
 
         labelTimeCountdown = new Label("0 Days, 0 Hours, 0 Minutes, 0 Seconds");
-        labelTimeCountdown.setFont(Font.font("Arial", 24));
+        labelTimeCountdown.setFont(Font.font("Arial", 22));
         labelTimeCountdown.setLayoutX(50);
         labelTimeCountdown.setLayoutY(120);
         pane.getChildren().add(labelTimeCountdown);
@@ -345,7 +345,8 @@ public class GUI extends Application {
         timelineOneSecondUpdate.play();
 
         timelineReminderPeriod = new Timeline(new KeyFrame(Duration.seconds(30), event -> {
-            remind = true;
+            if(!buttonStop.isDisabled())
+                remind = true;
         }));
         timelineReminderPeriod.setCycleCount(Animation.INDEFINITE);
         timelineReminderPeriod.play();
