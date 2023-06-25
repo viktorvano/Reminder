@@ -9,7 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -17,6 +20,7 @@ import javafx.util.Duration;
 import java.util.Objects;
 
 import static com.Viktor.Vano.Reminder.FileManager.*;
+import static com.Viktor.Vano.Reminder.IntegerFile.loadIntegerFromFile;
 
 public class GUI extends Application {
     private final String version = "20230625";
@@ -38,6 +42,8 @@ public class GUI extends Application {
     private Timeline timelineOneSecondUpdate, timelineReminderPeriod;
     private boolean countdown = false, remind = true;
     private int countdownSeconds = 9999;
+
+    private int background_red = 244, background_green = 244, background_blue = 244;
 
     public static void main(String[] args)
     {
@@ -80,6 +86,16 @@ public class GUI extends Application {
         }catch (Exception e){
             e.printStackTrace();
         }
+        background_red = loadIntegerFromFile("reminder_background_red.dat", background_red);
+        background_green = loadIntegerFromFile("reminder_background_green.dat", background_green);
+        background_blue = loadIntegerFromFile("reminder_background_blue.dat", background_blue);
+
+        Color background = new Color(
+                ((double)background_red)/255.0,
+                ((double)background_green)/255.0,
+                ((double)background_blue)/255.0,
+                1.0);
+        pane.setBackground(new Background(new BackgroundFill(background, null, null)));
 
         labelTime = new Label("Days         Hours      Minutes    Seconds");
         labelTime.setFont(Font.font("Arial", 24));
