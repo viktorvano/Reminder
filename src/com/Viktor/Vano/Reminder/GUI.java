@@ -19,7 +19,7 @@ import java.util.Objects;
 import static com.Viktor.Vano.Reminder.FileManager.*;
 
 public class GUI extends Application {
-    private final String version = "20230514";
+    private final String version = "20230625";
     private String stringIP = "";
     private int port = 8080;
     private final int width = 550;
@@ -124,6 +124,11 @@ public class GUI extends Application {
                     {
                         writeToFile("hours.dat", String.valueOf(value));
                         hours = value;
+                        if(hours > 23)
+                        {
+                            hours = 23;
+                            textFieldHours.setText(String.valueOf(hours));
+                        }
                         updateLabelCountdown();
                     }else
                         textFieldHours.setText("");
@@ -147,6 +152,11 @@ public class GUI extends Application {
                     {
                         writeToFile("minutes.dat", String.valueOf(value));
                         minutes = value;
+                        if(minutes > 59)
+                        {
+                            minutes = 59;
+                            textFieldMinutes.setText(String.valueOf(minutes));
+                        }
                         updateLabelCountdown();
                     }else
                         textFieldMinutes.setText("");
@@ -170,6 +180,11 @@ public class GUI extends Application {
                     {
                         writeToFile("seconds.dat", String.valueOf(value));
                         seconds = value;
+                        if(seconds > 59)
+                        {
+                            seconds = 59;
+                            textFieldSeconds.setText(String.valueOf(seconds));
+                        }
                         updateLabelCountdown();
                     }else
                         textFieldSeconds.setText("");
@@ -180,7 +195,7 @@ public class GUI extends Application {
         });
 
         labelTimeCountdown = new Label("0 Days, 0 Hours, 0 Minutes, 0 Seconds");
-        labelTimeCountdown.setFont(Font.font("Arial", 22));
+        labelTimeCountdown.setFont(Font.font("Arial", 20));
         labelTimeCountdown.setLayoutX(50);
         labelTimeCountdown.setLayoutY(120);
         pane.getChildren().add(labelTimeCountdown);
@@ -321,7 +336,7 @@ public class GUI extends Application {
             textFieldMinutes.setDisable(false);
             textFieldSeconds.setDisable(false);
             textFieldReminderMessage.setDisable(false);
-            updateIntegersFromInput();
+            updateInputFieldsFromCountdown();
             updateLabelCountdown();
             countdown = false;
             remind = false;
@@ -431,5 +446,13 @@ public class GUI extends Application {
             {
                 textFieldSeconds.setText("");
             }
+    }
+
+    private void updateInputFieldsFromCountdown()
+    {
+        textFieldDays.setText(String.valueOf(days));
+        textFieldHours.setText(String.valueOf(hours));
+        textFieldMinutes.setText(String.valueOf(minutes));
+        textFieldSeconds.setText(String.valueOf(seconds));
     }
 }
