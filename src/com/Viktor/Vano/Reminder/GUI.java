@@ -86,9 +86,9 @@ public class GUI extends Application {
         }catch (Exception e){
             e.printStackTrace();
         }
-        background_red = loadIntegerFromFile("reminder_background_red.dat", background_red);
-        background_green = loadIntegerFromFile("reminder_background_green.dat", background_green);
-        background_blue = loadIntegerFromFile("reminder_background_blue.dat", background_blue);
+        background_red = loadIntegerFromFile("reminder_background_red.txt", background_red);
+        background_green = loadIntegerFromFile("reminder_background_green.txt", background_green);
+        background_blue = loadIntegerFromFile("reminder_background_blue.txt", background_blue);
 
         Color background = new Color(
                 ((double)background_red)/255.0,
